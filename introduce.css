@@ -1,0 +1,1115 @@
+@font-face {
+    font-family: 'IAmAPlayer';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/IAMAPLAYER.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GabiaSolmi';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GabiaSolmee.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+section {
+    display: flex;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    /* 리스트에 기본으로 나오는 점 없애기*/
+    list-style-type: none;
+    /* 리스트를 기본 세로정렬에서 가로정렬로 바꾸기 */
+    display: inline-block;
+}
+
+.loading-container {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: whitesmoke;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.loading-container.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loading-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+}
+
+.loading-box p {
+    color: #000;
+    font-size: 30px;
+    margin-top: -50px;
+    transform: translate(-50%, -50%);
+    animation: opacity 1s ease-in infinite;
+}
+
+.loading-box .loading {
+    font-size: 60px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+header {
+    position: fixed;
+    align-content: center;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+}
+
+header li a {
+    position: relative;
+    top: 0;
+    transition: top 0.3s ease;
+
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    transition: background-color 1s ease;
+}
+
+.blind {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+    border-radius: 50%;
+    background-color: wheat;
+}
+
+.tooltip:hover .circle {
+    transition: 0.2s all ease-in-out;
+    background-color: #000;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+}
+
+
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    z-index: 1;
+    position: absolute;
+    top: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 20px 8px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(3px);
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-style: solid;
+    border-width: 5px;
+    border-color: transparent transparent black transparent;
+}
+
+.container {
+    min-width: 1200px;
+}
+
+#home {
+    background-size: cover;
+    background-position: 0 -120px;
+    height: 100vh;
+}
+
+#home .title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#home .title h1 {
+    font-family: 'IAmAPlayer';
+    width: 600px;
+    height: 60px;
+    font-size: 55px;
+    margin-bottom: 1.3rem;
+    white-space: nowrap;
+
+}
+
+#home .title p {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.scroll {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.scroll a {
+    display: block;
+    padding-top: 60px;
+}
+
+.scroll a span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 30px;
+    height: 50px;
+    margin-left: -15px;
+    border: 2px solid white;
+    border-radius: 50px;
+    box-sizing: border-box;
+}
+
+.scroll a span::before {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    content: '';
+    width: 6px;
+    height: 6px;
+    margin-left: -3px;
+    background-color: white;
+    border-radius: 100%;
+    -webkit-animation: sdb 2s infinite;
+    animation: sdb 2s infinite;
+    box-sizing: border-box;
+}
+
+.scroll p {
+    color: white;
+    font-size: 15px;
+}
+
+@keyframes sdb {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    80% {
+        transform: translate(0, 20px);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+@-webkit-keyframes sdb {
+    0% {
+        -webkit-transform: translate(0, 0);
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 1;
+    }
+
+    80% {
+        -webkit-transform: translate(0, 20px);
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+#about {
+    position: relative;
+    background-size: cover;
+    height: 100vh;
+    text-align: center;
+}
+
+#about h2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'IAmAPlayer';
+    font-size: 35px;
+}
+
+#about .profile_height {
+    align-content: center;
+}
+
+#about .about_profile {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    align-content: center;
+}
+
+#about .about_profile li {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 20px;
+    margin: 10px;
+}
+
+#about .img_box {
+    position: relative;
+    width: 350px;
+    height: 450px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    filter: drop-shadow(5px 5px 5px #000);
+    overflow: hidden;
+}
+
+#about .img_box img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    transition: all 0.4s ease;
+}
+
+/* 검은색 반투명 배경 */
+.profile_desc1 {
+    width: 350px;
+    height: 450px;
+    opacity: 0;
+    top: 0;
+    position: absolute;
+    overflow: hidden;
+    transition: all 0.7s;
+    background-color: black;
+    color: white;
+    z-index: 5;
+}
+
+.profile_desc1 ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.img_box:hover .profile_desc1 {
+    opacity: 0.7;
+}
+
+.profile_desc1::before,
+.profile_desc1::after {
+    content: "";
+    position: absolute;
+    background: white;
+    transition: all 0.4s ease;
+}
+
+.profile_desc1::before {
+    top: 6%;
+    left: 6%;
+    right: 6%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.profile_desc1::after {
+    bottom: 6%;
+    left: 6%;
+    right: 6%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.img_box:hover .profile_desc1::before {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.img_box:hover .profile_desc1::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.profile_desc1 .v-lines::before,
+.profile_desc1 .v-lines::after {
+    content: "";
+    position: absolute;
+    top: 6%;
+    bottom: 6%;
+    width: 2px;
+    background: white;
+    transition: all 0.4s ease;
+    transform: scaleY(0);
+}
+
+.profile_desc1 .v-lines::before {
+    left: 6%;
+    transform-origin: top;
+}
+
+.profile_desc1 .v-lines::after {
+    right: 6%;
+    transform-origin: bottom;
+}
+
+/* hover 시 세로선 그려지기 */
+.img_box:hover .profile_desc1 .v-lines::before {
+    transform: scaleY(1);
+}
+
+.img_box:hover .profile_desc1 .v-lines::after {
+    transform: scaleY(1);
+}
+
+#about .about_major {
+    position: absolute;
+    top: 30%;
+    left: 70%;
+    transform: translate(-50%, -20%);
+    align-content: center;
+}
+
+#about .img_box2 {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+
+}
+
+#about .img_box2 img {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(5px 5px 5px #000);
+}
+
+.profile_desc2 {
+    width: 220px;
+    height: 220px;
+    opacity: 0;
+    top: 0;
+    position: absolute;
+    overflow: hidden;
+    transition: all 0.7s;
+    background-color: black;
+    color: white;
+    z-index: 5;
+}
+
+.img_box2:hover .profile_desc2 {
+    opacity: 0.7;
+}
+
+#about .profile_desc2 li {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+.profile_desc2::before,
+.profile_desc2::after {
+    content: "";
+    position: absolute;
+    background: white;
+    transition: all 0.4s ease;
+}
+
+.profile_desc2::before {
+    top: 6%;
+    left: 6%;
+    right: 6%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.profile_desc2::after {
+    bottom: 6%;
+    left: 6%;
+    right: 6%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.img_box2:hover .profile_desc2::before {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.img_box2:hover .profile_desc2::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.profile_desc2 .v-lines::before,
+.profile_desc2 .v-lines::after {
+    content: "";
+    position: absolute;
+    top: 6%;
+    bottom: 6%;
+    width: 2px;
+    background: white;
+    transition: all 0.4s ease;
+    transform: scaleY(0);
+}
+
+.profile_desc2 .v-lines::before {
+    left: 6%;
+    transform-origin: top;
+}
+
+.profile_desc2 .v-lines::after {
+    right: 6%;
+    transform-origin: bottom;
+}
+
+/* hover 시 세로선 그려지기 */
+.img_box2:hover .profile_desc2 .v-lines::before {
+    transform: scaleY(1);
+}
+
+.img_box2:hover .profile_desc2 .v-lines::after {
+    transform: scaleY(1);
+}
+
+#about .about_nickname {
+    position: absolute;
+    top: 70%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+}
+
+#about .img_box3 {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+}
+
+#about .img_box3 img {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(5px 5px 5px #000);
+}
+
+.profile_desc3 {
+    width: 220px;
+    height: 220px;
+    opacity: 0;
+    top: 0;
+    position: absolute;
+    overflow: hidden;
+    transition: all 0.7s;
+    background-color: black;
+    color: white;
+}
+
+.img_box3:hover .profile_desc3 {
+    opacity: 0.7;
+    overflow: visible;
+}
+
+#about .profile_desc3 li {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+.profile_desc3::before,
+.profile_desc3::after {
+    content: "";
+    position: absolute;
+    background: white;
+    transition: all 0.4s ease;
+}
+
+.profile_desc3::before {
+    top: 6%;
+    left: 6%;
+    right: 6%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.profile_desc3::after {
+    bottom: 6%;
+    left: 6%;
+    right: 6%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.img_box3:hover .profile_desc3::before {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.img_box3:hover .profile_desc3::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.profile_desc3 .v-lines::before,
+.profile_desc3 .v-lines::after {
+    content: "";
+    position: absolute;
+    top: 6%;
+    bottom: 6%;
+    width: 2px;
+    background: white;
+    transition: all 0.4s ease;
+    transform: scaleY(0);
+}
+
+.profile_desc3 .v-lines::before {
+    left: 6%;
+    transform-origin: top;
+}
+
+.profile_desc3 .v-lines::after {
+    right: 6%;
+    transform-origin: bottom;
+}
+
+/* hover 시 세로선 그려지기 */
+.img_box3:hover .profile_desc3 .v-lines::before {
+    transform: scaleY(1);
+}
+
+.img_box3:hover .profile_desc3 .v-lines::after {
+    transform: scaleY(1);
+}
+
+#about .about_mbti {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -22%);
+}
+
+#about .img_box4 {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+}
+
+#about .img_box4 img {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(5px 5px 5px #000);
+}
+
+.profile_desc4 {
+    width: 220px;
+    height: 220px;
+    opacity: 0;
+    top: 0;
+    position: absolute;
+    overflow: hidden;
+    transition: all 0.7s;
+    background-color: black;
+    color: white;
+}
+
+.img_box4:hover .profile_desc4 {
+    opacity: 0.7;
+    overflow: visible;
+}
+
+#about .profile_desc4 li {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+.profile_desc4::before,
+.profile_desc4::after {
+    content: "";
+    position: absolute;
+    background: white;
+    transition: all 0.4s ease;
+}
+
+.profile_desc4::before {
+    top: 6%;
+    left: 6%;
+    right: 6%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.profile_desc4::after {
+    bottom: 6%;
+    left: 6%;
+    right: 6%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.img_box4:hover .profile_desc4::before {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.img_box4:hover .profile_desc4::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.profile_desc4 .v-lines::before,
+.profile_desc4 .v-lines::after {
+    content: "";
+    position: absolute;
+    top: 6%;
+    bottom: 6%;
+    width: 2px;
+    background: white;
+    transition: all 0.4s ease;
+    transform: scaleY(0);
+}
+
+.profile_desc4 .v-lines::before {
+    left: 6%;
+    transform-origin: top;
+}
+
+.profile_desc4 .v-lines::after {
+    right: 6%;
+    transform-origin: bottom;
+}
+
+/* hover 시 세로선 그려지기 */
+.img_box4:hover .profile_desc4 .v-lines::before {
+    transform: scaleY(1);
+}
+
+.img_box4:hover .profile_desc4 .v-lines::after {
+    transform: scaleY(1);
+}
+
+
+/* 키워드 사진 */
+#about .about_keyword {
+    position: absolute;
+    top: 70%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+#about .img_box5 {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+}
+
+#about .img_box5 img {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(5px 5px 5px #000);
+}
+
+.profile_desc5 {
+    width: 220px;
+    height: 220px;
+    opacity: 0;
+    top: 0;
+    position: absolute;
+    overflow: hidden;
+    transition: all 0.7s;
+    background-color: black;
+    color: white;
+}
+
+.img_box5:hover .profile_desc5 {
+    opacity: 0.7;
+    overflow: visible;
+}
+
+#about .profile_desc5 li {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    width: 80%;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.profile_desc5::before,
+.profile_desc5::after {
+    content: "";
+    position: absolute;
+    background: white;
+    transition: all 0.4s ease;
+}
+
+.profile_desc5::before {
+    top: 6%;
+    left: 6%;
+    right: 6%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: left;
+}
+
+.profile_desc5::after {
+    bottom: 6%;
+    left: 6%;
+    right: 6%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: right;
+}
+
+.img_box5:hover .profile_desc5::before {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.img_box5:hover .profile_desc5::after {
+    opacity: 1;
+    transform: scaleX(1);
+}
+
+.profile_desc5 .v-lines::before,
+.profile_desc5 .v-lines::after {
+    content: "";
+    position: absolute;
+    top: 6%;
+    bottom: 6%;
+    width: 2px;
+    background: white;
+    transition: all 0.4s ease;
+    transform: scaleY(0);
+}
+
+.profile_desc5 .v-lines::before {
+    left: 6%;
+    transform-origin: top;
+}
+
+.profile_desc5 .v-lines::after {
+    right: 6%;
+    transform-origin: bottom;
+}
+
+/* hover 시 세로선 그려지기 */
+.img_box5:hover .profile_desc5 .v-lines::before {
+    transform: scaleY(1);
+}
+
+.img_box5:hover .profile_desc5 .v-lines::after {
+    transform: scaleY(1);
+}
+
+/* 스크롤시 about 소개 사진들 올라오는 애니메이션 */
+@keyframes about_slide {
+    from {
+        opacity: 0;
+        transform: translateY(300px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
+
+/* 스크롤시 about 소개 사진들 내려가는 애니메이션 */
+@keyframes about_backslide {
+    from {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+
+    to {
+        opacity: 0;
+        transform: translateY(300px);
+    }
+}
+
+/* Favorite 섹션 시작 */
+#favorite {
+    position: relative;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#favorite h2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'IAmAPlayer';
+    font-size: 35px;
+}
+
+#favorite .Ilike {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    color: white;
+    font-weight: 400;
+}
+
+#favorite .slide_warp {
+    width: 960px;
+    height: 470px;
+    /* margin: 위 오른쪽 아래 왼쪽 */
+    margin: 120px auto 0 auto;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+#favorite .slide_warp .slides {
+    display: flex;
+    gap: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: left 0.5s ease-in-out;
+}
+
+#favorite .slide_warp .slides li {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    flex-shrink: 0;
+}
+
+#favorite .slide_img_box {
+    width: 300px;
+    height: 300px;
+}
+
+#favorite .slide_img_box img {
+    width: 100%;
+    height: 100%;
+}
+
+#favorite .slide_text_box {
+    text-align: left;
+    margin: 20px 0;
+}
+
+#favorite .slide_text_box .title {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+#favorite .slide_text_box .desc {
+    margin-top: 10px;
+    font-family: 'GabiaSolmi';
+    font-size: 1.3rem;
+    -webkit-text-stroke: 0.2px white;
+}
+
+#favorite .slide_text_box span {
+    position: absolute;
+    right: 10px;
+    top: -5px;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: white;
+}
+
+#favorite .controls .perv,
+#favorite .controls .next {
+    position: absolute;
+    cursor: pointer;
+    transform: translateY(-50%);
+    top: 50%;
+}
+
+#favorite .controls .perv {
+    left: 50px;
+}
+
+#favorite .controls .next {
+    right: 50px;
+}
+
+#favorite .controls .perv img,
+#favorite .controls .next img {
+    width: 80px;
+    height: 80px;
+}
+
+
+
+/* Goal 섹션 시작 */
+#goal {
+    position: relative;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#goal .goal_title h2 {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'IAmAPlayer';
+    font-size: 35px;
+}
+
+#goal .goal_title p {
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 15px;
+    color: white;
+    font-weight: 400;
+}
+
+#goal .goal_box {
+    display: flex;
+    justify-content: center;
+    padding: 100px;
+}
+
+#goal .goal_box .goal_box_detail {
+    position: relative;
+    margin-right: 30px;
+}
+
+#goal .goal_box .goal_box_detail:last-child {
+    margin-right: 0;
+}
+
+#goal .goal_box .goal_image_box {
+    width: 300px;
+    height: 300px;
+    border-radius: 8px;
+}
+
+#goal .goal_box li:nth-child(1) .goal_image_box {
+    background-image: url(gif/cat_typing.gif);
+    background-size: cover;
+    background-position: center;
+}
+
+#goal .goal_box li:nth-child(2) .goal_image_box {
+    background-image: url(images/개발자.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+
+
+
+
+
+
+
+#contact {
+    height: 100vh;
+}
