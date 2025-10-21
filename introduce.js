@@ -106,3 +106,22 @@ prevBtn.addEventListener('click', () => {
         slides.style.left = `${-currentIdx * slideWidth}px`;
     }
 });
+
+
+let goalBox1 = document.querySelector(".total_goal_box1");
+let goalBox2 = document.querySelector(".total_goal_box2");
+let goalBox3 = document.querySelector(".total_goal_box3");
+
+window.addEventListener("scroll", function () {
+    let value = window.scrollY;
+    console.log("scrollY", value);
+    if (value < 400) {
+        goalBox1.style.animation = "about_backslide 1s ease-out forwards";
+        goalBox2.style.animation = "about_backslide 1s ease-out forwards";
+        goalBox3.style.animation = "about_backslide 1s ease-out forwards";
+    } else {
+        goalBox1.style.animation = "about_slide 1s ease-out";
+        goalBox2.style.animation = "about_slide 1.5s ease-out";
+        goalBox3.style.animation = "about_slide 2s ease-out";
+    }
+})

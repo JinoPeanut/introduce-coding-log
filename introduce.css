@@ -1089,6 +1089,11 @@ body {
     border-radius: 8px;
 }
 
+#goal .goal_box .goal_image_box img {
+    width: 100%;
+    height: 100%;
+}
+
 #goal .goal_box li:nth-child(1) .goal_image_box {
     background-image: url(gif/cat_typing.gif);
     background-size: cover;
@@ -1101,15 +1106,110 @@ body {
     background-position: center;
 }
 
+#goal .goal_box li:nth-child(3) .goal_image_box {
+    background-image: url(images/취업성공2.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#goal .goal_box .goal_box_detail .goal_desc {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 20px;
+}
+
+#goal .goal_box .goal_box_detail .goal_black_background {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-color: black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    opacity: 0.5;
+}
+
+#goal .goal_box .goal_box_detail .goal_desc p {
+    color: white;
+}
 
 
 
 
-
-
-
-
-
+/* Contact 시작 지점 */
 #contact {
+    position: relative;
+    background-size: cover;
     height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#contact .contact_title {
+    padding: 30px;
+    height: 1.3em;
+    overflow-y: hidden;
+    margin-bottom: 30px;
+}
+
+#contact h2 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'IAmAPlayer';
+    font-size: 35px;
+}
+
+#contact .container .contact_box_container {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+}
+
+#contact .container .contact_box {
+    font-size: 13px;
+    padding: 0 25px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#contact .container .contact_box span {
+    display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    border: 1px solid white;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 10px rgb(255, 255, 255 / 63%);
+    padding: 5px;
+}
+
+#contact .container .contact_box img {
+    width: 100%;
+    height: 100%;
+}
+
+#contact .container .contact_box span:first-child {
+    width: 200px;
+}
+
+
+#contact .container .contact_box span:last-child {
+    width: 20px;
+}
+
+#contact .link {
+    height: 1.5em;
+    overflow-y: hidden;
 }
