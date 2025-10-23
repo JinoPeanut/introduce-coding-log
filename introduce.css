@@ -1,3 +1,4 @@
+/* 무료폰트인 "눈누" 웹사이트에서 링크 복사후 사용 */
 @font-face {
     font-family: 'IAmAPlayer';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-2@1.0/IAMAPLAYER.woff2') format('woff2');
@@ -29,6 +30,7 @@ section {
 ul {
     margin: 0;
     padding: 0;
+    /* 기본적으로 none을 해두지않으면 순서를 표시하는 점이 보임 */
     list-style: none;
     text-align: center;
 }
@@ -50,17 +52,22 @@ li {
     right: 0;
     background-color: whitesmoke;
     z-index: 100;
+    /* 아래 3개는 기본적으로 컨텐츠를 완전 중앙으로 배치하기 위해 사용함 */
     display: flex;
     justify-content: center;
     align-items: center;
     transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
+/* .hidden의 역할은 Js에서 2초의 로딩시간이 끝나면 .hidden 클래스를 추가해서 다음 페이지를
+보여주기때문에 .hidden 을 없애면 다음페이지를 보여주지못하고 무한 로딩이 발생함 */
+
 .loading-container.hidden {
     opacity: 0;
     visibility: hidden;
 }
 
+/* 로딩 글자와 이모지를 고정화면 위치에서 표시 */
 .loading-box {
     position: fixed;
     top: 50%;
@@ -71,6 +78,7 @@ li {
     color: #000;
     font-size: 30px;
     margin-top: -50px;
+    /* 주로 쓰이는 화면 정중앙 배치방법*/
     transform: translate(-50%, -50%);
     animation: opacity 1s ease-in infinite;
 }
@@ -80,6 +88,7 @@ li {
     animation: spin 1s linear infinite;
 }
 
+/* 이모지를 360도로 빙글빙글 돌게 만드는 애니메이션 */
 @keyframes spin {
     0% {
         transform: translate(-50%, -50%) rotate(0deg);
@@ -122,6 +131,7 @@ body {
     overflow: hidden;
 }
 
+/* 네비게이션 바의 원모양 */
 .circle {
     width: 20px;
     height: 20px;
@@ -130,19 +140,21 @@ body {
     background-color: wheat;
 }
 
+/* 원모양이 있는 영역에 마우스를 올리면 색깔 천천히 변경 */
 .tooltip:hover .circle {
     transition: 0.2s all ease-in-out;
     background-color: #000;
 }
 
+
 .tooltip {
     position: relative;
     display: inline-block;
+    /* 툴팁 내부에서 위아래 간격이 너무 높기때문에 0으로 설정 */
     line-height: 0;
 }
 
-
-
+/* 안보이게 해두고 살짝 위로 걸친상태*/
 .tooltip .tooltiptext {
     visibility: hidden;
     z-index: 1;
@@ -160,12 +172,14 @@ body {
     transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
+/* 마우스를 올리면 visible 로 보이고 translateY(3px)로 살짝 내려오는듯하게 */
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
     transform: translateX(-50%) translateY(3px);
 }
 
+/* 검은색 말풍선 모양 */
 .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
@@ -174,6 +188,7 @@ body {
     transform: translateX(-50%);
     border-style: solid;
     border-width: 5px;
+    /* 말풍선 뾰족한 부분 */
     border-color: transparent transparent black transparent;
 }
 
@@ -182,8 +197,10 @@ body {
 }
 
 #home {
+    /* 이건 단색배경이 아닌 이미지 파일에 더 알맞을듯 */
     background-size: cover;
     background-position: 0 -120px;
+    /* 각 섹션 크기를 100vh 로 통일 */
     height: 100vh;
 }
 
@@ -199,6 +216,8 @@ body {
     width: 600px;
     height: 60px;
     font-size: 55px;
+    /* rem 단위는 반응형에 알맞음 */
+    /* px는 축소되거나 확대되도 값 그대로 고정됨 */
     margin-bottom: 1.3rem;
     white-space: nowrap;
 
@@ -209,6 +228,7 @@ body {
     font-weight: 500;
 }
 
+/* 마우스 모양의 애니메이션 */
 .scroll {
     position: absolute;
     bottom: 10%;
@@ -223,6 +243,7 @@ body {
     padding-top: 60px;
 }
 
+/* 마우스 모양 내부 원형 */
 .scroll a span {
     position: absolute;
     top: 0;
@@ -245,6 +266,7 @@ body {
     margin-left: -3px;
     background-color: white;
     border-radius: 100%;
+    /* 애니메이션 반복 */
     -webkit-animation: sdb 2s infinite;
     animation: sdb 2s infinite;
     box-sizing: border-box;
@@ -255,6 +277,7 @@ body {
     font-size: 15px;
 }
 
+/* 아래로 스크롤을 내리는듯한 애니메이션 */
 @keyframes sdb {
     0% {
         transform: translate(0, 0);
@@ -295,6 +318,7 @@ body {
     }
 }
 
+/* About 섹션 시작 */
 #about {
     position: relative;
     background-size: cover;

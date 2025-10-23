@@ -12,6 +12,7 @@
 
 
 <body>
+    <!--로딩페이지-->
     <div class="loading-container">
         <div class="loading-box">
             <p class="loading">🍋</p>
@@ -19,6 +20,7 @@
         </div>
     </div>
 
+    <!--헤더 시작-->
     <header>
         <h1 class="blind">유진호 자개소개서</h1>
         <nav>
@@ -58,11 +60,13 @@
     <main>
         <div class="container">
             <!--섹션1 메인페이지 (인사, 이름, 간단소개 등 본격적인 소개 전 보이는 페이지)-->
+            <!--각 섹션은 쓰임새가 1번뿐이라 아이디형태로 만듦-->
             <section id="home">
                 <div class="title">
                     <h1></h1>
                     <p>안녕하세요 저는 유진호 입니다. 만나서 반갑습니다!</p>
                 </div>
+                <!--첫 Home 섹션의 마우스모양의 이모지-->
                 <div class="scroll">
                     <a href="#about"><span></span></a>
                     <p>Scroll</p>
@@ -76,11 +80,13 @@
                 </div>
                 <div class="profile_height">
                     <div class="about_profile">
+                        <!--이미지크기를 정해줄 img_box 클래스-->
                         <div class="img_box">
+                            <!--alt는 이미지가 나타나지 않을때 대신 보여줄 텍스트-->
                             <img src="images/내사진.jpg" alt="프로필 사진">
-                            <!--span 흰 네모선-->
-                            <span></span>
+                            <!--img_box 클래스에 태그를 각각 따로 둔 이유: 각자 애니메이션 효과가 달라서-->
                             <div class="profile_desc1">
+                                <!--마우스 올리면 보이는 흰선이 v-line 클래스-->
                                 <div class="v-lines"></div>
                                 <ul>
                                     <li>
@@ -106,6 +112,8 @@
                         </div>
                     </div>
                     <div class="about_major">
+                        <!--img_box 클래스는 하나로 합쳐 코드를 줄일 필요가 있어보임-->
+                        <!--profile_desc 클래스도 동일하게 예를들어 nth-child 를 이용한다던지-->
                         <div class="img_box2">
                             <img src="images/computer.jpg" alt="전공사진">
                             <div class="profile_desc2">
@@ -161,8 +169,10 @@
             <section id="favorite">
                 <div>
                     <h2>Favorite</h2>
+                    <!--p태그에 클래스가 아닌 부모태그인 div에 클래스를 만들었다면 깔끔했을듯-->
                     <p class="Ilike">내가 좋아하는 건...</p>
                 </div>
+                <!--사진 크기포함 최대 넓이를 지정하고 컨텐츠를 가운데로 정렬하는 클래스-->
                 <div class="slide_warp">
                     <ul class="slides">
                         <!-- 리스트 1개당 사진 1개 -->
@@ -204,6 +214,7 @@
                             </div>
                             <div class="slide_text_box">
                                 <span>04</span>
+                                <!--해당 p태그의 이모지가 검은색이 되는 현상이 있음 이유 찾을 필요있음-->
                                 <p class="title">맛있는 음식🍽</p>
                                 <p class="desc">살면서 다이어트 경험이 3번이나 있을정도로 먹는걸 매우 좋아합니다. 지금은 조절하고 있지만요</p>
                             </div>
@@ -222,7 +233,9 @@
                         </li>
                     </ul>
                 </div>
+                <!--왼쪽 오른쪽 버튼을 위한 태그-->
                 <p class="controls">
+                    <!--화살표 png 이미지 파일을 이용-->
                     <span class="perv"><img src="images/왼쪽화살표.png" alt="왼쪽화살표"></span>
                     <span class="next"><img src="images/오른쪽화살표.png" alt="오른쪽화살표"></span>
                 </p>
@@ -237,8 +250,11 @@
                 <ul class="goal_box">
                     <li class="goal_box_detail">
                         <div class="total_goal_box1">
+                            <!--이미지 크기결정할 클래스-->
                             <div class="goal_image_box"></div>
+                            <!--검은 반투명 배경의 클래스-->
                             <div class="goal_black_background"></div>
+                            <!--이미지 파일 중앙의 들어갈 텍스트-->
                             <div class="goal_desc">
                                 <p>#프론트엔드<br>백엔드 실력 향상</p>
                             </div>
@@ -271,7 +287,9 @@
                     <div class="contact_title">
                         <h2>Contact</h2>
                     </div>
+                    <!--안보이는 컨택트박스 최대크기와 위치를 지정-->
                     <div class="contact_box_container">
+                        <!--두개의 각각 다른 박스를 만들 태그-->
                         <div class="contact_box">
                             <span>010-2289-2158</span>
                             <span>📱</span>
@@ -293,6 +311,8 @@
     <footer>
         <p>*연습용 제작 페이지 입니다.</p>
     </footer>
+
+    <!--Js스크립트는 head 태그 안에 넣으면 오작동 하는 경우가 많아 body 태그 맨끝에 배치-->
     <script src="introduce.js"></script>
     <script src="loading.js"></script>
 </body>
