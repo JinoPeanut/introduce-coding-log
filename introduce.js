@@ -28,6 +28,7 @@ window.addEventListener("load", () => {
 
     // 2초 후에 로딩 화면 숨기기
     setTimeout(() => {
+        // 로딩 후 hidden 클래스를 추가하며 로딩페이지를 안보이게 함
         loading.classList.add("hidden");
         window.scrollTo({ top: 0, behavior: "instant" });
     }, 2000);
@@ -44,7 +45,10 @@ const colors = [
 
 const body = document.body;
 
+//스크롤시 점점 배경색이 바뀌도록 하는 기능
 window.addEventListener("scroll", () => {
+
+    //각 섹션의 반이상을 스크롤로 내리면 scrollY 에 값이 저장
     const scrollY = window.scrollY + window.innerHeight / 2;
     let index = 0;
 
@@ -55,15 +59,22 @@ window.addEventListener("scroll", () => {
             index = i;
         }
     });
+    //인덱스의 각 색상의 코드가 있으니 내릴 수록 배경이 점점 밝아짐
     body.style.backgroundColor = colors[index];
 });
 
+
+// 각 클래스를 담는 변수 이름을 지정
+// let = 키워드
+// aboutProfile = 변수이름
+// document.querySelector(".img_box"); = 함수호출(메서드)
 let aboutProfile = document.querySelector(".img_box");
 let aboutMajor = document.querySelector(".img_box2");
 let aboutNickname = document.querySelector(".img_box3");
 let aboutMbti = document.querySelector(".img_box4");
 let aboutKeyword = document.querySelector(".img_box5");
 
+//스크롤시 프로필카드 애니메이션 등장 함수
 window.addEventListener("scroll", function () {
     let value = window.scrollY;
     console.log("scrollY", value);
@@ -83,16 +94,19 @@ window.addEventListener("scroll", function () {
 })
 
 const slides = document.querySelector('.slides');
+//2개 이상 클래스 또는 태그시 querySelectorAll
 const slide = document.querySelectorAll('.slides li');
 const prevBtn = document.querySelector('.perv');
 const nextBtn = document.querySelector('.next');
 
+//사진의 넓이와 gap 30px 의 합
 const slideWidth = 330;
 const VisibleSlides = 3;
 let currentIdx = 0;
 
 const MaxIdx = slide.length - VisibleSlides;
 
+//사진이 잘리는거없이 크기에 맞게 오른쪽, 왼쪽으로 px 만큼 이동하는 이벤트
 nextBtn.addEventListener('click', () => {
     if (currentIdx < MaxIdx) {
         currentIdx++;

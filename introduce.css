@@ -335,6 +335,7 @@ body {
     font-size: 35px;
 }
 
+/* 사실상 없어도 되는 클래스. 다음엔 이런걸 줄여보자 */
 #about .profile_height {
     align-content: center;
 }
@@ -354,6 +355,7 @@ body {
     margin: 10px;
 }
 
+/* 메인 프로필사진의 크기 */
 #about .img_box {
     position: relative;
     width: 350px;
@@ -366,6 +368,7 @@ body {
 
 #about .img_box img {
     display: block;
+    /* 높이, 넓이 100% 한 이유는 부모클래스가 정한 박스의 크기를 따라가려고 */
     height: 100%;
     width: 100%;
     transition: all 0.4s ease;
@@ -382,7 +385,6 @@ body {
     transition: all 0.7s;
     background-color: black;
     color: white;
-    z-index: 5;
 }
 
 .profile_desc1 ul {
@@ -392,10 +394,13 @@ body {
     gap: 10px;
 }
 
+/* 마우스 올리면 투명도 0.7로 조정 */
 .img_box:hover .profile_desc1 {
     opacity: 0.7;
 }
 
+/* before는 태그 뒤에 요소를 만들고 after는 태그 앞에 요소를 만든다 */
+/* profile_desc1에 공통으로 들어가는 속성일때 */
 .profile_desc1::before,
 .profile_desc1::after {
     content: "";
@@ -404,19 +409,24 @@ body {
     transition: all 0.4s ease;
 }
 
+/* 아래와같이 서로 다를때 before, after 나눠둠 */
 .profile_desc1::before {
     top: 6%;
     left: 6%;
     right: 6%;
     height: 2px;
     transform: scaleX(0);
+    /* 애니메이션 방향이 왼쪽에서 오른쪽으로 */
     transform-origin: left;
 }
 
 .profile_desc1::after {
     bottom: 6%;
+    /* 아랫 선 */
+    /* 왼쪽 6% 시작점부터 오른쪽 6% 시작점까지 */
     left: 6%;
     right: 6%;
+    /* 가로선이라 굵기를 키우려면 height 이고 세로선일때는 width를 써야한다 */
     height: 2px;
     transform: scaleX(0);
     transform-origin: right;
@@ -424,6 +434,7 @@ body {
 
 .img_box:hover .profile_desc1::before {
     opacity: 1;
+    /* 가로축 0% 에서 100% 까지 크기를 키운다 */
     transform: scaleX(1);
 }
 
@@ -463,6 +474,8 @@ body {
     transform: scaleY(1);
 }
 
+/* 아래 코드들은 대부분 비슷함 */
+/* 이것도 너무 길어서 짧게 줄일 수 있어보임 */
 #about .about_major {
     position: absolute;
     top: 30%;
@@ -976,7 +989,9 @@ body {
 }
 
 #favorite .slide_warp {
+    /* 슬라이드를 생각해서 사진 갯수만큼의 넓이 적용 */
     width: 960px;
+    /* 사진의 높이와 아래의 텍스트까지 계산해서 높이 적용 */
     height: 470px;
     /* margin: 위 오른쪽 아래 왼쪽 */
     margin: 120px auto 0 auto;
@@ -988,6 +1003,8 @@ body {
 
 #favorite .slide_warp .slides {
     display: flex;
+    /* 부모 컨테이너 안 자식들끼리만 30px 간격조정 */
+    /* flex , grid 레이아웃에서만 적용 */
     gap: 30px;
     position: absolute;
     left: 0;
@@ -999,6 +1016,8 @@ body {
     position: relative;
     width: 300px;
     height: 300px;
+    /* width 공간이 부족해도 그대로 보여주는것 */
+    /* 슬라이드 사진들 확인을 위해 넣었지만 지금은 필요없는 속성 */
     flex-shrink: 0;
 }
 
@@ -1118,6 +1137,8 @@ body {
     height: 100%;
 }
 
+/* goal_image_box에 nth-child를 하면 같은 사진으로 3개가 도배됨 */
+/* 왜냐하면 goal_image_box 는 각 태그에서 항상 1번째 자식이기 때문 */
 #goal .goal_box li:nth-child(1) .goal_image_box {
     background-image: url(gif/cat_typing.gif);
     background-size: cover;
@@ -1146,6 +1167,7 @@ body {
     line-height: 20px;
 }
 
+/* 다음엔 검은 반투명 배경과 이미지를 css로 넣는걸 동시에 시도해볼것 */
 #goal .goal_box .goal_box_detail .goal_black_background {
     position: absolute;
     width: 300px;
